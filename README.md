@@ -5,8 +5,8 @@ This repository adapts the sentence-decoding code from d'Ascoli et al.,
 (Nature Neuroscience, 2025), for the 2026 PNPL LibriBrain100 competition.
 
 The default experiment is intentionally simple: train a
-brain-to-text-embedding model on one Sherlock session, validate on another,
-and test on a held-out Sherlock session.
+brain-to-text-embedding model on the first ten Sherlock sessions, validate on
+the next Sherlock session, and test on a held-out Sherlock session.
 
 ## What It Does
 
@@ -86,7 +86,7 @@ By default, `sentence_decoding.grids.libribrain100` runs:
 
 | Split | Subject | Task | Session | Run |
 | --- | --- | --- | --- | --- |
-| Train | sub-0 | Sherlock1 | 1 | 1 |
+| Train | sub-0 | Sherlock1 | 1-10 | 1 |
 | Validation | sub-0 | Sherlock1 | 11 | 2 |
 | Test | sub-0 | Sherlock1 | 12 | 2 |
 
@@ -121,7 +121,7 @@ LibriBrain100 grid.
 
 ## Changing Splits
 
-The default split is deliberately tiny. To change it, edit:
+The default split is deliberately focused. To change it, edit:
 
 ```text
 sentence_decoding/grids/libribrain100.py

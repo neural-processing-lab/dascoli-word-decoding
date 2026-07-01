@@ -1,7 +1,7 @@
 """Run sentence decoding on PNPL LibriBrain100.
 
 Default split:
-- train: sub-0, Sherlock1, session 1, run 1
+- train: sub-0, Sherlock1, sessions 1-10
 - val:   sub-0, Sherlock1, session 11, run 2
 - test:  sub-0, Sherlock1, session 12, run 2
 
@@ -77,11 +77,20 @@ LIBRIBRAIN100_50_WORD_VOCABULARY = [
     "on",
 ]
 
-SHERLOCK1_SUB0_SESSIONS_1_11_12 = (
+SHERLOCK1_SUB0_SESSIONS_1_10_11_12 = (
     "subject == 'LibriBrain100/0' "
     "and task == 'Sherlock1' "
     "and ("
     "(session == '1' and run == '1') "
+    "or (session == '2' and run == '1') "
+    "or (session == '3' and run == '1') "
+    "or (session == '4' and run == '1') "
+    "or (session == '5' and run == '1') "
+    "or (session == '6' and run == '1') "
+    "or (session == '7' and run == '1') "
+    "or (session == '8' and run == '1') "
+    "or (session == '9' and run == '1') "
+    "or (session == '10' and run == '1') "
     "or (session == '11' and run == '2') "
     "or (session == '12' and run == '2')"
     ")"
@@ -93,7 +102,7 @@ update = {
     "infra.mode": "force",
     "data.dataset": "LibriBrain100",
     "data.data_path": LIBRIBRAIN100_PATH,
-    "data.query": SHERLOCK1_SUB0_SESSIONS_1_11_12,
+    "data.query": SHERLOCK1_SUB0_SESSIONS_1_10_11_12,
     "data.n_timelines": "all",
     "data.n_subjects": "all",
     "data.n_timelines_per_subject": "all",
@@ -116,7 +125,7 @@ update = {
 updated_config = update_config(default_config, update)
 
 grid = {
-    "data.query": [SHERLOCK1_SUB0_SESSIONS_1_11_12],
+    "data.query": [SHERLOCK1_SUB0_SESSIONS_1_10_11_12],
     # PNPL-defined deep Sherlock split:
     # "data.query": ["subject == 'LibriBrain100/0' and corpus == 'sherlock'"],
     # PNPL-defined all-corpus split:
